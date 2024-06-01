@@ -4,6 +4,12 @@ const String topic_2 = 'assets/samples/ui/rive_app/images/topics/topic_2.png';
 const String logoEmail = 'assets/samples/ui/rive_app/images/logo_email.png';
 const String logoApple = 'assets/samples/ui/rive_app/images/logo_apple.png';
 const String logoGoogle = 'assets/samples/ui/rive_app/images/logo_google.png';
+const String add_shop = 'assets/samples/ui/rive_app/images/add_shop.ico';
+const String order_booking_status = 'assets/samples/ui/rive_app/images/topics/order_booking_status.png';
+const String recovery2 = 'assets/samples/ui/rive_app/images/topics/recovery2.png';
+const String return_form = 'assets/samples/ui/rive_app/images/topics/return_form.png';
+const String shop_visit = 'assets/samples/ui/rive_app/images/topics/shop_visit.png';
+const String bg4 = 'assets/images/bg4.png';
 
 // Rive assets
 const String iconsRiv = 'assets/samples/ui/rive_app/rive/icons.riv';

@@ -95,8 +95,8 @@ class _VCardState extends State<VCard> {
               )
             ],
           ),
-          Positioned(
-              right: -10, top: -10, child: Image.asset(widget.course.image))
+          //    Positioned(
+            //    right: -10, top: -10, child: Image.asset(widget.course.image))
         ],
       ),
     );

@@ -23,7 +23,7 @@ class MenuItemModel {
           TabItem(stateMachine: "SEARCH_Interactivity", artboard: "SEARCH"),
     ),
     MenuItemModel(
-      title: "Favorites",
+      title: "Progress",
       riveIcon:
           TabItem(stateMachine: "STAR_Interactivity", artboard: "LIKE/STAR"),
     ),

@@ -40,7 +40,7 @@ class HCard extends StatelessWidget {
             padding: EdgeInsets.all(20),
             child: VerticalDivider(thickness: 0.8, width: 0),
           ),
-          Image.asset(section.image)
+          // p Image.asset(section.image)
         ],
       ),
     );

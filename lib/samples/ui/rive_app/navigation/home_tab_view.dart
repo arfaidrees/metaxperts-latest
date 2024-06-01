@@ -35,8 +35,9 @@ class _HomeTabViewState extends State<HomeTabView> {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
-                  "Courses",
-                  style: TextStyle(fontSize: 34, fontFamily: "Poppins"),
+                  "Warehouse Portal",
+                //  style: TextStyle(fontSize: 33, fontFamily: "Poppins" , color: Color(0xFF416FDF),),
+                  style: TextStyle(fontSize: 32, fontFamily: "Poppins"),
                 ),
               ),
               SingleChildScrollView(
@@ -46,18 +47,18 @@ class _HomeTabViewState extends State<HomeTabView> {
                   children: _courses
                       .map(
                         (course) => Padding(
-                          key: course.id,
-                          padding: const EdgeInsets.all(10),
-                          child: VCard(course: course),
-                        ),
-                      )
+                      key: course.id,
+                      padding: const EdgeInsets.all(10),
+                             child: VCard(course: course),
+                    ),
+                  )
                       .toList(),
                 ),
               ),
               const Padding(
                 padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
                 child: Text(
-                  "Recent",
+                  "Details",
                   style: TextStyle(fontSize: 20, fontFamily: "Poppins"),
                 ),
               ),
@@ -66,7 +67,7 @@ class _HomeTabViewState extends State<HomeTabView> {
                 child: Wrap(
                   children: List.generate(
                     _courseSections.length,
-                    (index) => Container(
+                        (index) => Container(
                       key: _courseSections[index].id,
                       width: MediaQuery.of(context).size.width > 992
                           ? ((MediaQuery.of(context).size.width - 20) / 2)

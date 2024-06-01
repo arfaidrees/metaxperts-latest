@@ -70,7 +70,7 @@ class _SideMenuState extends State<SideMenu> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      "Ashu",
+                      "Arfa",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 17,

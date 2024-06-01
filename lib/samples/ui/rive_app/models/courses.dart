@@ -4,60 +4,78 @@ import 'package:flutter_samples/samples/ui/rive_app/assets.dart' as app_assets;
 class CourseModel {
   CourseModel(
       {this.id,
-      this.title = "",
-      this.subtitle = "",
-      this.caption = "",
-      this.color = Colors.white,
-      this.image = ""});
+        this.title = "",
+        this.subtitle = "",
+        this.caption = "",
+        this.color = Colors.white,
+        // this.image = ""
+      });
 
   UniqueKey? id = UniqueKey();
-  String title, caption, image;
+  String title, caption ;
+  // String title, caption, image;
   String? subtitle;
   Color color;
 
   static List<CourseModel> courses = [
     CourseModel(
-        title: "Animations in SwiftUI",
-        subtitle: "Build and animate an iOS app from scratch",
-        caption: "20 sections - 3 hours",
+        title: "Add Shop",
+        subtitle: "Click here to add your shop and provide all essential details",
+        caption: "Tap it",
         color: const Color(0xFF7850F0),
-        image: app_assets.topic_1),
+       // image: app_assets.topic_1
+  ),
     CourseModel(
-        title: "Build Quick Apps with SwiftUI",
+        title: "Shop Visit",
         subtitle:
-            "Apply your Swift and SwiftUI knowledge by building real, quick and various applications from scratch",
-        caption: "47 sections - 11 hours",
+        "Click here to visit the shop and explore its products",
+        caption: "Tap it",
+        color: const Color(0xFFBBA6FF),),
+    //  image: app_assets.topic_2),
+    CourseModel(
+        title: "Return Form",
+        subtitle:
+        "Click here to fill out the return form and provide all necessary details for processing your return efficiently.",
+        caption: "Tap it",
+        color: const Color(0xFF005FE7),),
+  //   image: app_assets.topic_2),
+    CourseModel(
+        title: "Recovery",
+        subtitle:
+        "View your previous payment history and manage cash recovery effortlessly.",
+        caption: "Tap it",
         color: const Color(0xFF6792FF),
-        image: app_assets.topic_2),
+  ),
+    //image: app_assets.topic_1),
     CourseModel(
-        title: "Build a SwiftUI app for iOS 15",
+        title: "Order Booking Status",
         subtitle:
-            "Design and code a SwiftUI 3 app with custom layouts, animations and gestures using Xcode 13, SF Symbols 3, Canvas, Concurrency, Searchable and a whole lot more",
-        caption: "21 sections - 4 hours",
-        color: const Color(0xFF005FE7),
-        image: app_assets.topic_1),
+        "Track the current status of your orders, from booking to delivery, ensuring you stay updated every step of the way",
+        caption: "Tap it",
+        color: const Color(0xFF7850F0),),
+    //   image: app_assets.topic_2),
   ];
-
   static List<CourseModel> courseSections = [
-    CourseModel(
-        title: "State Machine",
-        caption: "Watch video - 15 mins",
+        CourseModel(
+        title: "Booker Details",
+        caption: "More Info",
         color: const Color(0xFF9CC5FF),
-        image: app_assets.topic_2),
+  ),
+  // image: app_assets.topic_2),
     CourseModel(
-        title: "Animated Menu",
-        caption: "Watch video - 10 mins",
-        color: const Color(0xFF6E6AE8),
-        image: app_assets.topic_1),
+        title: "Recovery",
+        caption: "Check Current Balance",
+        color: const Color(0xFF6E6AE8),),
+    //     image: app_assets.topic_1),
     CourseModel(
-        title: "Tab Bar",
-        caption: "Watch video - 8 mins",
-        color: const Color(0xFF005FE7),
-        image: app_assets.topic_2),
+        title: "Return Form",
+        caption: "Insert Item",
+        color: const Color(0xFF005FE7),),
+    //  image: app_assets.topic_2),
     CourseModel(
-        title: "Button",
-        caption: "Watch video - 9 mins",
-        color: const Color(0xFFBBA6FF),
-        image: app_assets.topic_1),
+        title: "Booking Status",
+        caption: "Check Details",
+        color: const Color(0xFFBBA6FF),),
+    //   image: app_assets.topic_1),
   ];
 }
