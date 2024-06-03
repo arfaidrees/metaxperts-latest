@@ -10,9 +10,7 @@ import 'package:flutter_samples/samples/ui/rive_app/navigation/side_menu.dart';
 import 'package:flutter_samples/samples/ui/rive_app/theme.dart';
 import 'package:flutter_samples/samples/ui/rive_app/assets.dart' as app_assets;
 
-import 'components/clockin.dart';
-
-
+// Common Tab Scene for the tabs other than 1st one, showing only tab name in center
 Widget commonTabScene(String tabName) {
   return Container(
       color: RiveAppTheme.background,
@@ -45,8 +43,7 @@ class _RiveAppHomeState extends State<RiveAppHome>
   final List<Widget> _screens = [
     const HomeTabView(),
     commonTabScene("Search"),
-    const Clockin(),
-    //commonTabScene("Timer"),
+    commonTabScene("Timer"),
     commonTabScene("Bell"),
     commonTabScene("User"),
   ];
@@ -59,7 +56,7 @@ class _RiveAppHomeState extends State<RiveAppHome>
 
   void _onMenuIconInit(Artboard artboard) {
     final controller =
-        StateMachineController.fromArtboard(artboard, "State Machine");
+    StateMachineController.fromArtboard(artboard, "State Machine");
     artboard.addController(controller!);
     _menuBtn = controller.findInput<bool>("isOpen") as SMIBool;
     _menuBtn.value = true;
@@ -74,10 +71,10 @@ class _RiveAppHomeState extends State<RiveAppHome>
       _onBoardingAnimController?.animateWith(springAnim);
     } else {
       _onBoardingAnimController?.reverse().whenComplete(() => {
-            setState(() {
-              _showOnBoarding = false;
-            })
-          });
+        setState(() {
+          _showOnBoarding = false;
+        })
+      });
     }
   }
 
@@ -267,7 +264,7 @@ class _RiveAppHomeState extends State<RiveAppHome>
                     offset: Offset(
                         0,
                         -(MediaQuery.of(context).size.height +
-                                MediaQuery.of(context).padding.bottom) *
+                            MediaQuery.of(context).padding.bottom) *
                             (1 - _onBoardingAnim.value)),
                     child: child!,
                   );
@@ -291,7 +288,11 @@ class _RiveAppHomeState extends State<RiveAppHome>
                             offset: const Offset(0, 40))
                       ],
                     ),
-
+                    child: OnBoardingView(
+                      closeModal: () {
+                        _presentOnBoarding(false);
+                      },
+                    ),
                   ),
                 ),
               ),
