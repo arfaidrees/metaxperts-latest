@@ -10,7 +10,10 @@ import 'package:flutter_samples/samples/ui/rive_app/navigation/side_menu.dart';
 import 'package:flutter_samples/samples/ui/rive_app/theme.dart';
 import 'package:flutter_samples/samples/ui/rive_app/assets.dart' as app_assets;
 
-// Common Tab Scene for the tabs other than 1st one, showing only tab name in center
+import 'components/addshop.dart';
+import 'components/clockin.dart';
+
+
 Widget commonTabScene(String tabName) {
   return Container(
       color: RiveAppTheme.background,
@@ -43,8 +46,8 @@ class _RiveAppHomeState extends State<RiveAppHome>
   final List<Widget> _screens = [
     const HomeTabView(),
     commonTabScene("Search"),
-    commonTabScene("Timer"),
-    commonTabScene("Bell"),
+    Clockin(),
+    AddShopView(),
     commonTabScene("User"),
   ];
 

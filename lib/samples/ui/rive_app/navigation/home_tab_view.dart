@@ -14,7 +14,6 @@ class HomeTabView extends StatefulWidget {
 class _HomeTabViewState extends State<HomeTabView> {
   final List<CourseModel> _courses = CourseModel.courses;
   final List<CourseModel> _courseSections = CourseModel.courseSections;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

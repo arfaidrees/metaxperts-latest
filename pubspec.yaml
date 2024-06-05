@@ -39,6 +39,8 @@ dependencies:
   get: ^4.6.6
   icons_plus: ^4.0.0
   analog_clock: ^0.1.0
+  camera: ^0.11.0+1
+  image_picker: ^1.1.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
