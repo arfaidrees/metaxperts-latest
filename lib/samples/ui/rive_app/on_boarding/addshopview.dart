@@ -12,7 +12,6 @@ import '../../../../themee/theme.dart';
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({Key? key, this.closeModal}) : super(key: key);
 
-  // Close modal callback for any screen that uses this as a modal
   final Function? closeModal;
 
   @override
@@ -66,16 +65,11 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   color: lightColorScheme.primary,
                 ),
               ),
-              if (_imageFile != null)
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: Image.file(_imageFile!, height: 100, width: 100),
-                ),
               Expanded(
                 child: Center(
                   child: Container(
                     width: 320,
-                    height: 520,
+                    height: 620,
                     decoration: BoxDecoration(
                       color: Colors.white.withOpacity(0.4),
                       borderRadius: BorderRadius.circular(20),
@@ -183,6 +177,30 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 ),
                               ),
                             ),
+                            const SizedBox(height: 16),
+                            if (_imageFile != null)
+                              Container(
+                                width: 280,
+                                height: 280,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: lightColorScheme.primary, width: 2), // Add a border
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: lightColorScheme.primary.withOpacity(0.2), // Add shades
+                                      spreadRadius: 5,
+                                      blurRadius: 7,
+                                      offset: Offset(0, 3),
+                                    ),
+                                  ],
+                                  shape: BoxShape.circle, // Make the container circular
+                                ),
+                                child: ClipOval(
+                                  child: Image.file(_imageFile!, fit: BoxFit.cover),
+                                ),
+                              ),
+
+
+
                             const SizedBox(height: 16),
                             IconButton(
                               icon: Icon(Icons.camera_alt, color: lightColorScheme.primary),

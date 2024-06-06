@@ -5,7 +5,7 @@ import 'package:rive/rive.dart' hide LinearGradient;
 import 'dart:math' as math;
 import 'package:flutter_samples/samples/ui/rive_app/navigation/custom_tab_bar.dart';
 import 'package:flutter_samples/samples/ui/rive_app/navigation/home_tab_view.dart';
-import 'package:flutter_samples/samples/ui/rive_app/on_boarding/onboarding_view.dart';
+import 'package:flutter_samples/samples/ui/rive_app/on_boarding/addshopview.dart';
 import 'package:flutter_samples/samples/ui/rive_app/navigation/side_menu.dart';
 import 'package:flutter_samples/samples/ui/rive_app/theme.dart';
 import 'package:flutter_samples/samples/ui/rive_app/assets.dart' as app_assets;

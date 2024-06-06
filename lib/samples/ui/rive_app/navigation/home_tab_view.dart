@@ -36,7 +36,7 @@ class _HomeTabViewState extends State<HomeTabView> {
                 child: Text(
                   "Warehouse Portal",
                 //  style: TextStyle(fontSize: 33, fontFamily: "Poppins" , color: Color(0xFF416FDF),),
-                  style: TextStyle(fontSize: 32, fontFamily: "Poppins"),
+                  style: TextStyle(fontSize: 32, fontFamily: "Poppins", color: Color(0xFF416FDF)),
                 ),
               ),
               SingleChildScrollView(
@@ -58,7 +58,7 @@ class _HomeTabViewState extends State<HomeTabView> {
                 padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
                 child: Text(
                   "Details",
-                  style: TextStyle(fontSize: 20, fontFamily: "Poppins"),
+                  style: TextStyle(fontSize: 20, fontFamily: "Poppins", color: Color(0xFF416FDF)),
                 ),
               ),
               Padding(
