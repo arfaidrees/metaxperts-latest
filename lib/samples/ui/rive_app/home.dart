@@ -46,9 +46,10 @@ class _RiveAppHomeState extends State<RiveAppHome>
   Widget _tabBody = Container(color: RiveAppTheme.background);
   final List<Widget> _screens = [
     const HomeTabView(),
-    shopvisit(),
+    ShopVisit(),
     Clockin(),
     AddShopView(),
+    AddShop(),
     //commonTabScene("User"),
 
   ];
@@ -293,7 +294,7 @@ class _RiveAppHomeState extends State<RiveAppHome>
                             offset: const Offset(0, 40))
                       ],
                     ),
-                    child: OnBoardingView(
+                    child: AddShop(
                       closeModal: () {
                         _presentOnBoarding(false);
                       },

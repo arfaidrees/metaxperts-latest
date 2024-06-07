@@ -9,16 +9,16 @@ import 'package:image_picker/image_picker.dart';
 
 import '../../../../themee/theme.dart';
 
-class OnBoardingView extends StatefulWidget {
-  const OnBoardingView({Key? key, this.closeModal}) : super(key: key);
+class AddShop extends StatefulWidget {
+  const AddShop({Key? key, this.closeModal}) : super(key: key);
 
   final Function? closeModal;
 
   @override
-  _OnBoardingViewState createState() => _OnBoardingViewState();
+  _AddShopState createState() => _AddShopState();
 }
 
-class _OnBoardingViewState extends State<OnBoardingView> {
+class _AddShopState extends State<AddShop> {
   File? _imageFile;
 
   Future<void> _pickImage() async {
@@ -62,7 +62,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 style: TextStyle(
                   fontFamily: "Poppins",
                   fontSize: 34,
-                  color: lightColorScheme.primary,
+                    color: Colors.white,
                 ),
               ),
               Expanded(
@@ -71,7 +71,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     width: 320,
                     height: 620,
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.4),
+                      color: Colors.white.withOpacity(0.3),
+                      //  color: Color(0xFFBBA6FF).withOpacity(0.3),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: SingleChildScrollView(
@@ -85,10 +86,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 labelText: "Shop Name",
                                 labelStyle: TextStyle(color: Colors.black.withOpacity(0.4)),
                                 filled: true,
-                                fillColor: Colors.white,
+                                fillColor: Colors.transparent,
                                 prefixIcon: Icon(Icons.store, color: lightColorScheme.primary),
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(70),
                                   borderSide: const BorderSide(color: Colors.black, width: 1),
                                 ),
                               ),
@@ -99,10 +100,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 labelText: "Shop Address",
                                 labelStyle: TextStyle(color: Colors.black.withOpacity(0.4)),
                                 filled: true,
-                                fillColor: Colors.white,
+                                fillColor: Colors.transparent,
                                 prefixIcon: Icon(Icons.location_on, color: lightColorScheme.primary),
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(70),
                                   borderSide: const BorderSide(color: Colors.black, width: 1),
                                 ),
                               ),
@@ -113,10 +114,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 labelText: "City",
                                 labelStyle: TextStyle(color: Colors.black.withOpacity(0.4)),
                                 filled: true,
-                                fillColor: Colors.white,
+                                fillColor: Colors.transparent,
                                 prefixIcon: Icon(Icons.location_city, color: lightColorScheme.primary),
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(70),
                                   borderSide: const BorderSide(color: Colors.black, width: 1),
                                 ),
                               ),
@@ -127,10 +128,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 labelText: "Owner Name",
                                 labelStyle: TextStyle(color: Colors.black.withOpacity(0.4)),
                                 filled: true,
-                                fillColor: Colors.white,
+                                fillColor: Colors.transparent,
                                 prefixIcon: Icon(Icons.person, color: lightColorScheme.primary),
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(70),
                                   borderSide: const BorderSide(color: Colors.black, width: 1),
                                 ),
                               ),
@@ -141,10 +142,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 labelText: "Owner CNIC",
                                 labelStyle: TextStyle(color: Colors.black.withOpacity(0.4)),
                                 filled: true,
-                                fillColor: Colors.white,
+                                fillColor: Colors.transparent,
                                 prefixIcon: Icon(Icons.credit_card, color: lightColorScheme.primary),
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(70),
                                   borderSide: const BorderSide(color: Colors.black, width: 1),
                                 ),
                               ),
@@ -155,10 +156,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 labelText: "Phone Number",
                                 labelStyle: TextStyle(color: Colors.black.withOpacity(0.4)),
                                 filled: true,
-                                fillColor: Colors.white,
+                                fillColor: Colors.transparent,
                                 prefixIcon: Icon(Icons.phone, color: lightColorScheme.primary),
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(70),
                                   borderSide: const BorderSide(color: Colors.black, width: 1),
                                 ),
                               ),
@@ -169,10 +170,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 labelText: "Alternative Phone Number",
                                 labelStyle: TextStyle(color: Colors.black.withOpacity(0.4)),
                                 filled: true,
-                                fillColor: Colors.white,
+                                fillColor: Colors.transparent,
                                 prefixIcon: Icon(Icons.phone_android, color: lightColorScheme.primary),
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(70),
                                   borderSide: const BorderSide(color: Colors.black, width: 1),
                                 ),
                               ),
@@ -198,9 +199,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                   child: Image.file(_imageFile!, fit: BoxFit.cover),
                                 ),
                               ),
-
-
-
                             const SizedBox(height: 16),
                             IconButton(
                               icon: Icon(Icons.camera_alt, color: lightColorScheme.primary),
@@ -209,9 +207,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                             ),
                             const SizedBox(height: 16),
                             CupertinoButton(
-                              child: Text('Save'),
                               color: lightColorScheme.primary,
+                              borderRadius: BorderRadius.circular(35),
                               onPressed: () {},
+                              child: const Text('Save'),
                             ),
                           ],
                         ),
