@@ -102,8 +102,9 @@ class _ClockinState extends State<Clockin> {
                 ),
                 width: 230.0,
                 isLive: true,
-                hourHandColor:Color(0xFF416FDF),
-                minuteHandColor:Color(0xFF416FDF),
+                hourHandColor: Color(0xFF416FDF),
+                minuteHandColor: Colors.black,
+                secondHandColor: Colors.red,
                 showSecondHand: true,
                 numberColor: Colors.black87,
                 showNumbers: false,
@@ -118,13 +119,50 @@ class _ClockinState extends State<Clockin> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "$hoursString:$minuteString:$secondString",
-                  style: TextStyle(
-                    fontSize: 60,
-                    fontWeight: FontWeight.w500,
-                    color: lightColorScheme.primary,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      hoursString,
+                      style: TextStyle(
+                        fontSize: 60,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xFF416FDF), // Blue color for hours
+                      ),
+                    ),
+                    Text(
+                      ":",
+                      style: TextStyle(
+                        fontSize: 60,
+                        fontWeight: FontWeight.w500,
+                        color: lightColorScheme.primary,
+                      ),
+                    ),
+                    Text(
+                      minuteString,
+                      style: TextStyle(
+                        fontSize: 60,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                      ),
+                    ),
+                    Text(
+                      ":",
+                      style: TextStyle(
+                        fontSize: 60,
+                        fontWeight: FontWeight.w500,
+                        color: lightColorScheme.primary,
+                      ),
+                    ),
+                    Text(
+                      secondString,
+                      style: TextStyle(
+                        fontSize: 60,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(

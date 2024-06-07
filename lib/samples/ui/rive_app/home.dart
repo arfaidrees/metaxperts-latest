@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_samples/samples/ui/rive_app/components/Shopvisit.dart';
 import 'package:rive/rive.dart' hide LinearGradient;
 import 'dart:math' as math;
 import 'package:flutter_samples/samples/ui/rive_app/navigation/custom_tab_bar.dart';
@@ -45,10 +46,11 @@ class _RiveAppHomeState extends State<RiveAppHome>
   Widget _tabBody = Container(color: RiveAppTheme.background);
   final List<Widget> _screens = [
     const HomeTabView(),
-    commonTabScene("Search"),
+    shopvisit(),
     Clockin(),
     AddShopView(),
-    commonTabScene("User"),
+    //commonTabScene("User"),
+
   ];
 
   final springDesc = const SpringDescription(
