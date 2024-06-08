@@ -20,6 +20,12 @@ class ShopVisit extends StatefulWidget {
 class _ShopVisitState extends State<ShopVisit> {
   File? _imageFile;
 
+  bool _walkthroughPerformed = false;
+  bool _planogramUpdated = false;
+  bool _shelfTagsChecked = false;
+  bool _expiryDateChecked = false;
+  String _feedback = '';
+
   Future<void> _pickImage() async {
     final picker = ImagePicker();
     final pickedFile = await picker.pickImage(source: ImageSource.camera);
@@ -33,12 +39,14 @@ class _ShopVisitState extends State<ShopVisit> {
 
   @override
   Widget build(BuildContext context) {
+    final lightColorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Color(0xFFBBA6FF).withOpacity(0.3),
       body: Stack(
         children: [
           ImageFiltered(
-            imageFilter: ImageFilter.blur(sigmaX:  50, sigmaY: 50),
+            imageFilter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
             child: Center(
               child: OverflowBox(
                 maxWidth: double.infinity,
@@ -56,23 +64,23 @@ class _ShopVisitState extends State<ShopVisit> {
           Center(
             child: Container(
               width: 320,
-              height: 640, // Adjust height as needed
-              margin: const EdgeInsets.only(top: 15), // Move the container upwards
+              height: 620, // Adjust height as needed
+              margin: const EdgeInsets.only(top: 8), // Move the container upwards
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(30),
+                color: Colors.white.withOpacity(0.6),
+                borderRadius: BorderRadius.circular(20),
               ),
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     children: [
-                      const Text(
+                      Text(
                         "Shop Visit",
                         style: TextStyle(
                           fontFamily: "Poppins",
                           fontSize: 34,
-                          color: Colors.white,
+                          color: lightColorScheme.primary,
                         ),
                       ),
                       const SizedBox(height: 16),
@@ -87,6 +95,7 @@ class _ShopVisitState extends State<ShopVisit> {
                       ),
                       const SizedBox(height: 16),
                       TextField(
+                        style: TextStyle(fontSize: 12),
                         decoration: InputDecoration(
                           labelText: "Shop Name",
                           labelStyle: TextStyle(color: Colors.black.withOpacity(0.4)),
@@ -101,6 +110,7 @@ class _ShopVisitState extends State<ShopVisit> {
                       ),
                       const SizedBox(height: 16),
                       TextField(
+                        style: TextStyle(fontSize: 12),
                         decoration: InputDecoration(
                           labelText: "Shop Address",
                           labelStyle: TextStyle(color: Colors.black.withOpacity(0.4)),
@@ -115,6 +125,7 @@ class _ShopVisitState extends State<ShopVisit> {
                       ),
                       const SizedBox(height: 16),
                       TextField(
+                        style: TextStyle(fontSize: 12),
                         decoration: InputDecoration(
                           labelText: "Booker Name",
                           labelStyle: TextStyle(color: Colors.black.withOpacity(0.4)),
@@ -129,6 +140,7 @@ class _ShopVisitState extends State<ShopVisit> {
                       ),
                       const SizedBox(height: 16),
                       TextField(
+                        style: TextStyle(fontSize: 12),
                         decoration: InputDecoration(
                           labelText: "Brand",
                           labelStyle: TextStyle(color: Colors.black.withOpacity(0.3)),
@@ -142,41 +154,101 @@ class _ShopVisitState extends State<ShopVisit> {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: DataTable(
-                          columns: const [
-                            DataColumn(
-                              label: Text('Products'),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.3),
+                          //border: Border.all(color: lightColorScheme.primary, width: 2),
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              blurRadius: 10,
+                              spreadRadius: 5,
+                              offset: Offset(0, 3),
                             ),
-                            DataColumn(
-                              label: Text('Quantity'),
-                            ),
-                          ],
-                          rows: const [
-                            DataRow(cells: [
-                              DataCell(Text('Product 1')),
-                              DataCell(Text('10')),
-                            ]),
-                            DataRow(cells: [
-                              DataCell(Text('Product 2')),
-                              DataCell(Text('20')),
-                            ]),
-                            DataRow(cells: [
-                              DataCell(Text('Product 3')),
-                              DataCell(Text('30')),
-                            ]),
-                            DataRow(cells: [
-                              DataCell(Text('Product 4')),
-                              DataCell(Text('40')),
-                            ]),
-                            DataRow(cells: [
-                              DataCell(Text('Product 5')),
-                              DataCell(Text('50')),
-                            ]),
-                            // Add more rows as needed
                           ],
                         ),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: DataTable(
+                            columns: const [
+                              DataColumn(
+                                label: Text('Products'),
+                              ),
+                              DataColumn(
+                                label: Text('Quantity'),
+                              ),
+                            ],
+                            rows: const [
+                              DataRow(cells: [
+                                DataCell(Text('Product 1')),
+                                DataCell(Text('10')),
+                              ]),
+                              DataRow(cells: [
+                                DataCell(Text('Product 2')),
+                                DataCell(Text('20')),
+                              ]),
+                              DataRow(cells: [
+                                DataCell(Text('Product 3')),
+                                DataCell(Text('30')),
+                              ]),
+                              DataRow(cells: [
+                                DataCell(Text('Product 4')),
+                                DataCell(Text('40')),
+                              ]),
+                              DataRow(cells: [
+                                DataCell(Text('Product 5')),
+                                DataCell(Text('50')),
+                              ]),
+                              // Add more rows as needed
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      CheckboxListTile(
+                        title: Text("Performed Store Walkthrough"),
+                        value: _walkthroughPerformed,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            _walkthroughPerformed = value!;
+                          });
+                        },
+                        activeColor: lightColorScheme.primary,
+                        controlAffinity: ListTileControlAffinity.leading,
+                      ),
+                      CheckboxListTile(
+                        title: Text("Update Store Planogram"),
+                        value: _planogramUpdated,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            _planogramUpdated = value!;
+                          });
+                        },
+                        activeColor: lightColorScheme.primary,
+                        controlAffinity: ListTileControlAffinity.leading,
+                      ),
+                      CheckboxListTile(
+                        title: Text("Shelf Tags and Price Signage Check"),
+                        value: _shelfTagsChecked,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            _shelfTagsChecked = value!;
+                          });
+                        },
+                        activeColor: lightColorScheme.primary,
+                        controlAffinity: ListTileControlAffinity.leading,
+                      ),
+                      CheckboxListTile(
+                        title: Text("Expiry Date on Product reviewed"),
+                        value: _expiryDateChecked,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            _expiryDateChecked = value!;
+                          });
+                        },
+                        activeColor: lightColorScheme.primary,
+                        controlAffinity: ListTileControlAffinity.leading,
                       ),
                       const SizedBox(height: 16),
                       if (_imageFile != null)
@@ -206,12 +278,82 @@ class _ShopVisitState extends State<ShopVisit> {
                         iconSize: 30,
                       ),
                       const SizedBox(height: 16),
-                      CupertinoButton(
-                        color: lightColorScheme.primary,
-                        borderRadius: BorderRadius.circular(35),
-                        onPressed: () {},
-                        child: const Text('Save'),
+                      Container(
+                        width: 280,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              blurRadius: 10,
+                              spreadRadius: 5,
+                              offset: Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: TextField(
+                            maxLines: 3,
+                            maxLength: 100,
+                            decoration: InputDecoration(
+                              hintText: "Feedback (Limit 100 words)",
+                              border: InputBorder.none,
+                            ),
+                            onChanged: (value) {
+                              setState(() {
+                                _feedback = value;
+                              });
+                            },
+                          ),
+                        ),
                       ),
+                      const SizedBox(height: 16),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              // Add functionality for the "No Order" button here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: lightColorScheme.primary,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                              textStyle: TextStyle(fontSize: 16),
+                            ),
+                            child: Text('No Order'),
+                          ),
+                          SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                // Your existing content goes here
+                              ],
+                            ),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              // Add functionality for the second button here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: lightColorScheme.primary,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                              textStyle: TextStyle(fontSize: 16),
+                            ),
+                            child: Text('+ Order Booking Page'),
+                          ),
+                        ],
+                      ),
+
+
+
                     ],
                   ),
                 ),
