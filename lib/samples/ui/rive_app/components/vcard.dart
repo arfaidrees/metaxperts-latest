@@ -11,7 +11,7 @@ class VCard extends StatefulWidget {
 }
 
 class _VCardState extends State<VCard> {
-  final avatars = [4, 5, 6];
+  final avatars = [2, 3, 5];
 
   @override
   void initState() {
