@@ -6,7 +6,6 @@ import 'package:flutter_samples/samples/ui/rive_app/theme.dart';
 import 'package:flutter_samples/samples/ui/rive_app/assets.dart' as app_assets;
 import 'package:rive/rive.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../../../../themee/theme.dart';
 
 class AddShop extends StatefulWidget {

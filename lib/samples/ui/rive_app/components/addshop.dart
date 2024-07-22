@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:rive/rive.dart' hide LinearGradient;
 import 'package:flutter_samples/samples/ui/rive_app/theme.dart';
 
 class AddShopView extends StatefulWidget {
@@ -40,14 +40,16 @@ class _AddShopViewState extends State<AddShopView> {
 
   // Function to capture image from camera
   Future<void> _getImageFromCamera() async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? pickedFile = await _picker.pickImage(source: ImageSource.camera);
+    final ImagePicker picker = ImagePicker();
+    final XFile? pickedFile = await picker.pickImage(source: ImageSource.camera);
 
     setState(() {
       if (pickedFile != null) {
         _image = File(pickedFile.path);
       } else {
-        print('No image selected.');
+        if (kDebugMode) {
+          print('No image selected.');
+        }
       }
     });
   }
@@ -98,19 +100,19 @@ class _AddShopViewState extends State<AddShopView> {
                           style: TextStyle(fontFamily: "Poppins", fontSize: 34),
                         ),
                         const SizedBox(height: 24),
-                        buildTextField("Shop Name", _shopNameController),
+                        buildTextField("Shop Name", _shopNameController, Icons.store),
                         const SizedBox(height: 24),
-                        buildTextField("Shop Address", _shopAddressController),
+                        buildTextField("Shop Address", _shopAddressController, Icons.location_on),
                         const SizedBox(height: 24),
-                        buildTextField("City", _shopEmailController),
+                        buildTextField("City", _shopEmailController, Icons.place_outlined),
                         const SizedBox(height: 24),
-                        buildTextField("Owner name", _shopPhoneController),
+                        buildTextField("Owner Name", _shopPhoneController, Icons.person),
                         const SizedBox(height: 24),
-                        buildTextField("Owner CNIC", _shopWebsiteController),
+                        buildTextField("Owner CNIC", _shopWebsiteController, Icons.credit_card),
                         const SizedBox(height: 24),
-                        buildTextField("Phone Number", _shopDescriptionController),
+                        buildTextField("Phone Number", _shopDescriptionController, Icons.phone),
                         const SizedBox(height: 24),
-                        buildTextField("Alternative Phone Number", _shopCategoryController),
+                        buildTextField("Alternative Phone Number", _shopCategoryController, Icons.phone_iphone),
                         const SizedBox(height: 24),
                         _image != null
                             ? Image.file(
@@ -121,57 +123,21 @@ class _AddShopViewState extends State<AddShopView> {
                             : Container(),
                         const SizedBox(height: 24),
                         CupertinoButton(
-                          child: Text('Take Picture'),
                           color: CupertinoColors.secondaryLabel,
                           onPressed: _getImageFromCamera,
+                          child: const Text('Take Picture'),
                         ),
                         const SizedBox(height: 16),
                         CupertinoButton(
-                          child: Text('Save'),
                           color: CupertinoColors.secondaryLabel,
                           onPressed: () {
                           },
+                          child: const Text('Save'),
                         ),
                       ],
                     ),
                   ),
                 ),
-                // Positioned(
-                //   bottom: 0,
-                //   left: 0,
-                //   right: 0,
-                //   child: Align(
-                //     alignment: Alignment.center,
-                //     child: CupertinoButton(
-                //       padding: EdgeInsets.zero,
-                //       borderRadius: BorderRadius.circular(36 / 2),
-                //       minSize: 36,
-                //       child: Container(
-                //         width: 36,
-                //         height: 36,
-                //         decoration: BoxDecoration(
-                //           color: Colors.white,
-                //           borderRadius: BorderRadius.circular(36 / 2),
-                //           boxShadow: [
-                //             BoxShadow(
-                //               color: RiveAppTheme.shadow.withOpacity(0.3),
-                //               blurRadius: 5,
-                //               offset: const Offset(0, 3),
-                //             ),
-                //           ],
-                //         ),
-                //         child: const Icon(
-                //           Icons.close,
-                //           color: Colors.black,
-                //         ),
-                //       ),
-                //       onPressed: () {
-                //         Navigator.of(context).pop();
-                //        // widget.closeModal!();
-                //       },
-                //     ),
-                //   ),
-                // ),
               ],
             ),
           ),
@@ -180,7 +146,7 @@ class _AddShopViewState extends State<AddShopView> {
     );
   }
 
-  Widget buildTextField(String label, TextEditingController controller) {
+  Widget buildTextField(String label, TextEditingController controller, IconData icon) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -196,6 +162,7 @@ class _AddShopViewState extends State<AddShopView> {
         TextField(
           controller: controller,
           decoration: InputDecoration(
+            prefixIcon: Icon(icon, color: CupertinoColors.secondaryLabel),
             filled: true,
             fillColor: Colors.white,
             enabledBorder: OutlineInputBorder(

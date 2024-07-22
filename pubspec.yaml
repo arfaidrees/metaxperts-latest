@@ -41,6 +41,7 @@ dependencies:
   analog_clock: ^0.1.0
   camera: ^0.11.0+1
   image_picker: ^1.1.2
+  intl: ^0.19.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -76,6 +77,14 @@ flutter:
     - assets/images/bg2.png
     - assets/images/inventrybg.png
     - assets/images/glass.png
+    - assets/images/1st.gif
+    - assets/samples/ui/rive_app/images/avatars/avatar_2.png
+    - assets/samples/ui/rive_app/images/avatars/avatar_1.png
+    - assets/samples/ui/rive_app/images/avatars/avatar_3.png
+    - assets/samples/ui/rive_app/images/avatars/avatar_4.png
+    - assets/samples/ui/rive_app/images/avatars/avatar_5.png
+    - assets/samples/ui/rive_app/images/avatars/avatar_default.jpg
+    - assets/samples/ui/rive_app/images/avatars/addshop.png
     - assets/images/
     #   - images/a_dot_ham.jpeg
 
@@ -100,6 +109,5 @@ flutter:
       fonts:
         - asset: assets/fonts/Poppins-Bold.ttf
           weight: 900
-
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

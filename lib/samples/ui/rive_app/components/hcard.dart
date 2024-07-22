@@ -20,19 +20,27 @@ class HCard extends StatelessWidget {
           Expanded(
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  section.title,
-                  style: const TextStyle(
-                      fontSize: 24, fontFamily: "Poppins", color: Colors.white),
+                Padding(
+                  padding: const EdgeInsets.only(top: 24.0), // Added padding
+                  child: Text(
+                    section.title,
+                    style: const TextStyle(
+                        fontSize: 18,
+                        fontFamily: "avenir next",
+                        color: Colors.white),
+                  ),
                 ),
                 const SizedBox(height: 8),
-                Text(
-                  section.caption,
-                  style: const TextStyle(
-                      fontSize: 17, fontFamily: "Inter", color: Colors.white),
-                )
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0), // Added padding
+                  child: Text(
+                    section.caption,
+                    style: const TextStyle(
+                        fontSize: 17, fontFamily: "avenir next", color: Colors.white),
+                  ),
+                ),
               ],
             ),
           ),

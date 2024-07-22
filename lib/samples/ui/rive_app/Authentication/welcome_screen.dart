@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_samples/samples/ui/rive_app/Authentication/signin_screen.dart';
-import 'package:flutter_samples/samples/ui/rive_app/Authentication/signup_screen.dart';
 import '../../../../themee/theme.dart';
 import '../../../../widgets/custom_scaffold.dart';
 import '../../../../widgets/welcome_button.dart';
+import '../theme.dart';
+import 'companyregisteration.dart';
+import 'signin_screen.dart';
 
 
 class WelcomeScreen extends StatelessWidget {
@@ -16,10 +17,6 @@ class WelcomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(
-              vertical: 40.0,
-              horizontal: 40.0,
-            ),
             child: Center(
               child: RichText(
                 textAlign: TextAlign.center,
@@ -30,15 +27,17 @@ class WelcomeScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 45.0,
                         fontWeight: FontWeight.w600,
-                        color: lightColorScheme.primary,
+                        fontFamily: "avenir next",
+                        color: RiveAppTheme.accentColor,
                       ),
                     ),
                     TextSpan(
                       text:
                       '\nPlease enter your personal details to create your employee account.',
                       style: TextStyle(
-                        fontSize: 20,
-                        color: lightColorScheme.primary,
+                        fontSize: 15,
+                        fontFamily: "avenir next",
+                        color: RiveAppTheme.accentColor,
                       ),
                     ),
                   ],
@@ -53,20 +52,20 @@ class WelcomeScreen extends StatelessWidget {
               alignment: Alignment.bottomRight,
               child: Row(
                 children: [
-                  const Expanded(
+                  Expanded(
                     child: WelcomeButton(
-                      buttonText: 'Sign in',
+                      buttonText: 'Log in',
                       onTap: SignInScreen(),
                       color: Colors.transparent,
-                      textColor: Colors.white,
+                      textColor: RiveAppTheme.accentColor,
                     ),
                   ),
                   Expanded(
                     child: WelcomeButton(
-                      buttonText: 'Sign up',
-                      onTap: const SignUpScreen(),
-                      color: Colors.white,
-                      textColor: lightColorScheme.primary,
+                      buttonText: 'Register',
+                      onTap: const CompanyRegistration(),
+                      color: RiveAppTheme.accentColor,
+                      textColor: Colors.white,
                     ),
                   ),
                 ],

@@ -6,19 +6,18 @@ import 'package:flutter_samples/samples/ui/rive_app/theme.dart';
 import 'package:flutter_samples/samples/ui/rive_app/assets.dart' as app_assets;
 import 'package:rive/rive.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../../../../themee/theme.dart';
 
-class Recovery extends StatefulWidget {
-  const Recovery({Key? key, this.closeModal}) : super(key: key);
+class AnimationSample extends StatefulWidget {
+  const AnimationSample({Key? key, this.closeModal}) : super(key: key);
 
   final Function? closeModal;
 
   @override
-  _RecoveryState createState() => _RecoveryState();
+  _AnimationSampleState createState() => _AnimationSampleState();
 }
 
-class _RecoveryState extends State<Recovery> {
+class _AnimationSampleState extends State<AnimationSample> {
   File? _imageFile;
 
   Future<void> _pickImage() async {

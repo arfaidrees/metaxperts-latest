@@ -35,8 +35,10 @@ class _HomeTabViewState extends State<HomeTabView> {
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
                   "Warehouse Portal",
-                //  style: TextStyle(fontSize: 33, fontFamily: "Poppins" , color: Color(0xFF416FDF),),
-                  style: TextStyle(fontSize: 32, fontFamily: "Poppins", color: Color(0xFF416FDF)),
+                  style: TextStyle(
+                      fontSize: 32,
+                      fontFamily: "avenir next",
+                      color: Color(0xFF17203A)),
                 ),
               ),
               SingleChildScrollView(
@@ -48,7 +50,7 @@ class _HomeTabViewState extends State<HomeTabView> {
                         (course) => Padding(
                       key: course.id,
                       padding: const EdgeInsets.all(10),
-                             child: VCard(course: course),
+                      child: VCard(course: course),
                     ),
                   )
                       .toList(),
@@ -58,7 +60,10 @@ class _HomeTabViewState extends State<HomeTabView> {
                 padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
                 child: Text(
                   "Details",
-                  style: TextStyle(fontSize: 20, fontFamily: "Poppins", color: Color(0xFF416FDF)),
+                  style: TextStyle(
+                      fontSize: 22,
+                      fontFamily: "avenir next",
+                      color: Color(0xFF17203A)),
                 ),
               ),
               Padding(

@@ -13,7 +13,7 @@ import 'package:flutter_samples/samples/ui/rive_app/assets.dart' as app_assets;
 
 import 'components/addshop.dart';
 import 'components/clockin.dart';
-import 'components/recovery_form.dart';
+import 'components/animationsample.dart';
 
 
 Widget commonTabScene(String tabName) {
@@ -46,9 +46,9 @@ class _RiveAppHomeState extends State<RiveAppHome>
   bool _showOnBoarding = false;
   Widget _tabBody = Container(color: RiveAppTheme.background);
   final List<Widget> _screens = [
-    const HomeTabView(),
+    HomeTabView(),
     ShopVisit(),
-    Recovery(),
+    Clockin(),
     AddShopView(),
     AddShop(),
     //commonTabScene("User"),

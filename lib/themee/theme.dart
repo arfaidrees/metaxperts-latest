@@ -18,9 +18,10 @@ const lightColorScheme = ColorScheme(
 
 const darkColorScheme = ColorScheme(
   brightness: Brightness.dark,
-  primary: Color(0xFF416FDF),
+  //primary: Color(0xFF416FDF), geniune color
+  primary: Color(0xFF0A3161), //dark blue
   onPrimary: Color(0xFFFFFFFF),
-  secondary: Color(0xFF6EAEE7),
+  secondary: Color(0xFF38B6FF), // sky blue
   onSecondary: Color(0xFFFFFFFF),
   error: Color(0xFFBA1A1A),
   onError: Color(0xFFFFFFFF),
