@@ -108,7 +108,7 @@ class _VCardState extends State<VCard> {
 
   void _navigateToPage(BuildContext context, String title) {
     switch (title) {
-      case "Add Shop":
+      case "Add Shop ":
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const AddShopFinal()),
