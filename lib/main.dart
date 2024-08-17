@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_samples/samples/ui/rive_app/Authentication/welcome_screen.dart';
-import 'package:flutter_samples/themee/theme.dart';
 import 'package:get/get.dart';
+import 'Frontend/Views/welcome_screen.dart';
+import 'Frontend/Components/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: lightMode,
       home: const WelcomeScreen(),
     );
